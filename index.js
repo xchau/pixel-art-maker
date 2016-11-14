@@ -106,7 +106,6 @@
     });
   }
 
-
   // Click & drag to color
 
 
