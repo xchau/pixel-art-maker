@@ -31,13 +31,14 @@ submitButton.addEventListener('click', (event) => {
 
 //////// DOM GRID INTERACTION ////////
   // Choose & paint color for DOM canvas
-  const colorButtons = document.getElementsByClassName('color');
   const currentColor = document.getElementById('current');
   const p = document.createElement('p');
+  const hexes = document.getElementsByClassName('hex');
 
-  for (const button of colorButtons) {
-    button.addEventListener('click', () => {
-      color = button.id;
+  for (const hex of hexes) {
+    hex.addEventListener('click', () => {
+      color = hex.id;
+      currentColor.textContent = '';
       currentColor.setAttribute('class', color);
       p.setAttribute('class', 'current');
       p.textContent = color;
@@ -52,37 +53,26 @@ submitButton.addEventListener('click', (event) => {
       cell.setAttribute('class', 'cell ' + color);
     });
   }
-  // Right-click clear for DOM canvas
+  // Eraser: white on right-click @ DOM GRID
   for (const cell of cells) {
     cell.addEventListener('contextmenu', function(event) {
         event.preventDefault();
         cell.setAttribute('class', 'cell white');
     });
   }
+  /// END OF INNER IIFE ///
 });
 
 //////// DEFAULT GRID INTERACTION ////////
 // Choose & paint cell color
-const colorButtons = document.getElementsByClassName('color');
 const currentColor = document.getElementById('current');
 const p = document.createElement('p');
-
-for (const button of colorButtons) {
-  button.addEventListener('click', () => {
-    color = button.id;
-    currentColor.setAttribute('class', color);
-    p.setAttribute('class', 'current');
-    p.textContent = color;
-    currentColor.appendChild(p);
-    console.log(color);
-  });
-}
-//////
 const hexes = document.getElementsByClassName('hex');
 
 for (const hex of hexes) {
   hex.addEventListener('click', () => {
     color = hex.id;
+    currentColor.style.cssText = null;
     currentColor.setAttribute('class', color);
     p.setAttribute('class', 'current');
     p.textContent = color;
@@ -90,11 +80,12 @@ for (const hex of hexes) {
     console.log(color);
   });
 }
-///////
+
 const cells = document.getElementsByClassName('cell');
 
 for (const cell of cells) {
   cell.addEventListener('click', () => {
+    cell.style.backgroundColor = userColor;
     cell.setAttribute('class', 'cell ' + color);
   });
 }
@@ -114,12 +105,17 @@ for (let i = 0; i < height; i++) {
 }
 console.log(canvas);
 
-// Right-shadow
-// const rowsInCanvas = document.getElementsByClassName('row');
-//
-// for (const row of rowsInCanvas) {
-//   row.lastChild.classList.add('right-shadow')
-// }
+// Set custom color
+const userColorButton = document.getElementById('color-submit');
+let userColor = '';
+userColorButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  userColor = document.getElementById('user-color').value;
+  currentColor.style.backgroundColor = userColor;
+  p.setAttribute('class', 'current');
+  p.textContent = userColor;
+  currentColor.appendChild(p);
+});
 
 
 
@@ -134,7 +130,7 @@ for (const cell of cells) {
 
 // Undo: ctrl+z to go back 1 step
 
-// Change input field on focus
+// Clear input field on focus
 const inputs = document.querySelectorAll('input');
 
 for (const input of inputs) {
@@ -147,6 +143,6 @@ for (const input of inputs) {
 
 
 
-///////END////////
+
 
 })();
