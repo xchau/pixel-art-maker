@@ -48,8 +48,7 @@
         p.setAttribute('class', 'current');
         p.textContent = color;
         currentColor.appendChild(p);
-        console.log(color);
-      });
+        });
     }
 
     for (const cell of cells) {
@@ -100,18 +99,13 @@
     });
   }
 
-  let isPainting = false;
   for (const cell of cells) {
-    cell.addEventListener('mousedown', () => {
-      isPainting = true;
-      // cell.style.backgroundColor = userColor;
-      // cell.setAttribute('class', 'cell ' + color);
-      cell.addEventListener('mouseover', () => {
-        cell.style.backgroundColor = userColor;
-        cell.setAttribute('class', 'cell ' + color);
-      });
+    cell.addEventListener('click', () => {
+      cell.style.backgroundColor = userColor;
+      cell.setAttribute('class', 'cell ' + color);
     });
   }
+
 
   // Click & drag to color
 
