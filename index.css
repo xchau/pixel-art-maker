@@ -45,21 +45,6 @@ html {
   width: 18px;
   height: 18px;
 }
-/*
-.right-shadow {
-  box-shadow: -2px 0px -2px 0px rgba(50, 50, 50, .9);
-}*/
-
-/* ---SPECIAL FX--- */
-/*#fx {
-  border: 1px solid black;
-  float: left;
-  width: 20px;
-  height: 20px;
-  position: relative;
-  top: 50px;
-}*/
-
 
 /* ---GRID CONTROL--- */
 
@@ -84,6 +69,8 @@ html {
 
 #palette {
   display: flex;
+  width: 100%;
+  flex-direction: column;
 }
 
 #current {
@@ -92,30 +79,50 @@ html {
   height: 150px;
   margin: 5px 20px;
   border-radius: 3px;
-  /*display: flex;
-  align-items: center;*/
 }
 
 .current {
   transform: rotate(270deg);
   position: relative;
-  top:70px;
+  top: 100px;
 }
 
-.pal-row {
+.pal-row-1 {
   display: flex;
-  flex-wrap: wrap;
-  height: 30%;
+  position: relative;
+  top: 20px;
+  height: 60px;
+  width: 100%;
+  padding: 0px 20px;
+}
+
+.pal-row-2 {
+  display: flex;
+  position: relative;
+  left: 20px;
+  height: 60px;
+  width: 100%;
+  padding: 0px 20px;
+}
+
+.pal-row-3 {
+  display: flex;
+  position: relative;
+  /*left: 20px;*/
+  top: -20px;
+  height: 60px;
   width: 100%;
   padding: 0px 20px;
 }
 
 .color {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid black;
-  margin: 5px 0px;
+  margin: 5px 5px;
+  position: relative;
+  top: -10px;
+}
+
+.blank {
+  background-color: blue;
 }
 
 .white {
@@ -124,13 +131,9 @@ html {
 
 #white {
   order: 1;
-  border-radius: 0;
-  border: none;
-  width: 0;
-  height: 0;
-  border-left: 16px solid transparent;
-  border-right: 16px solid transparent;
-  border-top: 26px solid white;
+  background: -webkit-linear-gradient(white, white, #e2e2e2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .black {
@@ -139,13 +142,9 @@ html {
 
 #black {
   order: 2;
-  border-radius: 0;
-  border: none;
-  width: 0;
-  height: 0;
-  border-left: 16px solid transparent;
-  border-right:16px solid transparent;
-  border-bottom: 26px solid black;
+  background: -webkit-linear-gradient(black, #424242, #393939);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .red {
@@ -155,13 +154,9 @@ html {
 
 #red {
   order: 3;
-  border-radius: 0;
-  border: none;
-  width: 0;
-  height: 0;
-  border-left: 16px solid transparent;
-  border-right: 16px solid transparent;
-  border-top: 26px solid red;
+  background: -webkit-linear-gradient(red, #f9726b, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .orange {
@@ -170,13 +165,9 @@ html {
 
 #orange {
   order: 4;
-  border-radius: 0;
-  border: none;
-  width: 0;
-  height: 0;
-  border-left: 16px solid transparent;
-  border-right:16px solid transparent;
-  border-bottom: 26px solid orange;
+  background: -webkit-linear-gradient(orange, coral, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .yellow {
@@ -185,13 +176,9 @@ html {
 
 #yellow {
   order: 5;
-  border-radius: 0;
-  border: none;
-  width: 0;
-  height: 0;
-  border-left: 16px solid transparent;
-  border-right: 16px solid transparent;
-  border-bottom: 26px solid yellow;
+  background: -webkit-linear-gradient(yellow, #f8f9a4, yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .lightgreen {
@@ -200,13 +187,9 @@ html {
 
 #lightgreen {
   order: 6;
-  border-radius: 0;
-  border: none;
-  width: 0;
-  height: 0;
-  border-left: 16px solid transparent;
-  border-right:16px solid transparent;
-  border-bottom: 26px solid lightgreen;
+  background: -webkit-linear-gradient(lightgreen, #aff7bc, lightgreen);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .green {
@@ -215,14 +198,9 @@ html {
 
 #green {
   order: 7;
-  order: 5;
-  border-radius: 0;
-  border: none;
-  width: 0;
-  height: 0;
-  border-left: 16px solid transparent;
-  border-right: 16px solid transparent;
-  border-top: 26px solid green;
+  background: -webkit-linear-gradient(green, #33af49, seagreen);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .lightblue {
@@ -231,44 +209,121 @@ html {
 
 #lightblue {
   order: 8;
-  border-radius: 0;
-  border: none;
-  width: 0;
-  height: 0;
-  border-left: 16px solid transparent;
-  border-right:16px solid transparent;
-  border-top: 26px solid lightblue;
+  background: -webkit-linear-gradient(lightblue, skyblue, powderblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.blue {
+.royalblue {
   background-color: blue;
 }
 
-#blue {
+#royalblue {
   order: 9;
+  background: -webkit-linear-gradient(royalblue, blue, #5c88e8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 2nd row */
+.gray {
+  background-color: gray;
+}
+
+#gray {
+  order: 1;
+  background: -webkit-linear-gradient(gray, #b2b2b2, gray);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lightcoral {
+  background-color: lightcoral;
+}
+
+#lightcoral {
+  order: 2;
+  background: -webkit-linear-gradient(pink, lightcoral, pink);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pink {
+  background-color: pink;
+}
+
+#pink {
+  order: 3;
+  background: -webkit-linear-gradient(lightcoral, pink, lightcoral);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.coral {
+  background-color: coral;
+}
+
+#coral {
+  order: 4;
+  background: -webkit-linear-gradient(coral, #eda480, coral);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cornsilk {
+  background-color: cornsilk;
+}
+
+#cornsilk {
   order: 5;
-  border-radius: 0;
-  border: none;
-  width: 0;
-  height: 0;
-  border-left: 16px solid transparent;
-  border-right: 16px solid transparent;
-  border-top: 26px solid blue;
+  background: -webkit-linear-gradient(cornsilk, #f8f9a4, cornsilk);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.purple {
-  background-color: purple;
+.lime {
+  background-color: lime;
 }
 
-#purple {
-  order: 10;
-  border-radius: 0;
-  border: none;
-  width: 0;
-  height: 0;
-  border-left: 16px solid transparent;
-  border-right:16px solid transparent;
-  border-bottom: 26px solid purple;
+#lime {
+  order: 6;
+  background: -webkit-linear-gradient(lime, greenyellow, lime);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dodgerblue {
+  background-color: dodgerblue;
+}
+
+#dodgerblue {
+  order: 7;
+  background: -webkit-linear-gradient(lightblue, dodgerblue, powderblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.darkviolet {
+  background-color: darkviolet;
+}
+
+#darkviolet {
+  order: 8;
+  background: -webkit-linear-gradient(darkviolet, mediumpurple, darkviolet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 3rd row */
+.lightgray {
+  background-color: lightgray;
+}
+
+#lightgray {
+  order: 1;
+  background: -webkit-linear-gradient(lightgray, #c9c9c9, gray);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .brown {
@@ -276,15 +331,90 @@ html {
 }
 
 #brown {
-  order: 10;
-  border-radius: 0;
-  border: none;
-  width: 0;
-  height: 0;
-  border-left: 16px solid transparent;
-  border-right:16px solid transparent;
-  border-top: 26px solid brown;
+  order: 2;
+  background: -webkit-linear-gradient(brown, #ba8034, brown);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+.indianred {
+  background-color: indianred;
+}
+
+#indianred {
+  order: 3;
+  background: -webkit-linear-gradient(brown, indianred, brown);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.crimson {
+  background-color: crimson;
+}
+
+#crimson {
+  order: 5;
+  background: -webkit-linear-gradient(indianred, crimson, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lemonchiffon {
+  background-color: lemonchiffon;
+}
+
+#lemonchiffon {
+  order: 5;
+  background: -webkit-linear-gradient(cornsilk, lemonchiffon, cornsilk);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold {
+  background-color: gold;
+}
+
+#gold {
+  order: 6;
+  background: -webkit-linear-gradient(gold, #f1fc7e, gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mediumspringgreen {
+  background-color: mediumspringgreen;
+}
+
+#mediumspringgreen {
+  order: 7;
+  background: -webkit-linear-gradient(lightgreen, mediumspringgreen, lightgreen);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.plum {
+  background-color: plum;
+}
+
+#plum {
+  order: 8;
+  background: -webkit-linear-gradient(thistle, plum, thistle);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.thistle {
+  background-color: thistle;
+}
+
+#thistle {
+  order: 9;
+  background: -webkit-linear-gradient(plum, thistle, white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
 
 
 

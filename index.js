@@ -77,7 +77,20 @@ for (const button of colorButtons) {
     console.log(color);
   });
 }
+//////
+const hexes = document.getElementsByClassName('hex');
 
+for (const hex of hexes) {
+  hex.addEventListener('click', () => {
+    color = hex.id;
+    currentColor.setAttribute('class', color);
+    p.setAttribute('class', 'current');
+    p.textContent = color;
+    currentColor.appendChild(p);
+    console.log(color);
+  });
+}
+///////
 const cells = document.getElementsByClassName('cell');
 
 for (const cell of cells) {
