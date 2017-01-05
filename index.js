@@ -99,12 +99,40 @@
     });
   }
 
-  for (const cell of cells) {
-    cell.addEventListener('click', () => {
-      cell.style.backgroundColor = userColor;
-      cell.setAttribute('class', 'cell ' + color);
-    });
-  }
+  let isDrawing = false;
+  
+  canvas.addEventListener('mousedown', (event) => {
+    if (event.target === canvas) {
+      return;
+    }
+    isDrawing = true;
+    console.log(isDrawing);
+
+    if (isDrawing) {
+      for (const cell of cells) {
+        cell.addEventListener('mouseenter', (event) => {
+          cell.style.backgroundColor = userColor;
+          cell.setAttribute('class', 'cell ' + color);
+        });
+      }
+    }
+  });
+
+
+
+
+
+
+
+
+
+
+  // for (const cell of cells) {
+  //   cell.addEventListener('click', () => {
+  //     cell.style.backgroundColor = userColor;
+  //     cell.setAttribute('class', 'cell ' + color);
+  //   });
+  // }
 
   // Click & drag to color
 
